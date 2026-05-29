@@ -454,8 +454,8 @@
 
     .classroom-gallery {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      grid-auto-rows: 320px;
+      grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
+      grid-template-rows: repeat(2, minmax(220px, 280px));
       gap: 1.2rem;
     }
 
@@ -470,7 +470,8 @@
     }
 
     .classroom-photo:first-child {
-      min-height: 320px;
+      grid-row: span 2;
+      min-height: 460px;
     }
 
     .classroom-photo img {
@@ -480,6 +481,10 @@
       min-height: 100%;
       object-fit: cover;
       object-position: center;
+    }
+
+    .classroom-photo:first-child img {
+      object-position: center 42%;
     }
 
     .classroom-photo figcaption {
@@ -762,6 +767,11 @@
         min-height: 320px;
       }
 
+      .classroom-gallery {
+        grid-template-rows: none;
+        grid-auto-rows: auto;
+      }
+
       .section-title {
         display: block;
       }
@@ -776,6 +786,7 @@
       }
 
       .classroom-photo:first-child {
+        grid-row: auto;
         min-height: 360px;
       }
     }
@@ -851,6 +862,7 @@
       }
 
       .classroom-gallery {
+        grid-template-rows: none;
         grid-auto-rows: auto;
       }
 
