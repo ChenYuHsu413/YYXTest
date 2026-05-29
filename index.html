@@ -1,0 +1,889 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>楊宜修國文文理補習班｜招生簡章</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #222333;
+      --muted: #626675;
+      --line: rgba(255, 255, 255, 0.42);
+      --glass: rgba(255, 255, 255, 0.64);
+      --glass-strong: rgba(255, 255, 255, 0.78);
+      --navy: #2c3569;
+      --red: #af4040;
+      --gold: #e5aa23;
+      --green: #3b8d74;
+      --paper: #fff7e8;
+      --shadow: 0 24px 80px rgba(34, 35, 51, 0.18);
+      font-family: "Noto Sans TC", "Microsoft JhengHei", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--ink);
+      background:
+        linear-gradient(135deg, rgba(255, 247, 232, 0.95), rgba(230, 242, 255, 0.88) 46%, rgba(255, 236, 217, 0.92)),
+        url("https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&w=1800&q=80") center / cover fixed;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.18) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.16) 1px, transparent 1px);
+      background-size: 42px 42px;
+      mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), transparent 75%);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .marquee {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      overflow: hidden;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.45);
+      color: #c73333;
+      background: rgba(255, 255, 255, 0.82);
+      backdrop-filter: blur(16px);
+    }
+
+    .marquee__track {
+      display: flex;
+      width: max-content;
+      animation: marquee-bounce 8s linear infinite alternate;
+    }
+
+    .marquee__group {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+      padding: 0.75rem 1rem;
+      white-space: nowrap;
+      font-weight: 700;
+      font-size: clamp(1.1rem, 2.4vw, 1.55rem);
+      letter-spacing: 0;
+    }
+
+    .marquee strong {
+      color: #c73333;
+    }
+
+    @keyframes marquee-bounce {
+      from { transform: translateX(100vw); }
+      to { transform: translateX(-100%); }
+    }
+
+    .site {
+      position: relative;
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .nav {
+      display: grid;
+      grid-template-columns: 1fr;
+      justify-items: center;
+      gap: 1rem;
+      padding: 1.25rem 0 0;
+    }
+
+    .brand {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 112px;
+      width: min(100%, 760px);
+      text-align: center;
+      font-weight: 900;
+      color: var(--navy);
+    }
+
+    .brand__mark {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      z-index: 0;
+      display: block;
+      width: clamp(118px, 20vw, 178px);
+      height: clamp(118px, 20vw, 178px);
+      overflow: hidden;
+      border-radius: 50%;
+      opacity: 0.18;
+      transform: translate(-50%, -50%);
+      filter: saturate(0.85);
+    }
+
+    .brand__mark img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      transform: scale(1.14);
+    }
+
+    .brand__name {
+      position: relative;
+      z-index: 1;
+      font-size: clamp(1.85rem, 5vw, 3.8rem);
+      line-height: 1.15;
+      letter-spacing: 0;
+      text-shadow: 0 2px 18px rgba(255, 255, 255, 0.86);
+    }
+
+    .nav__links {
+      display: flex;
+      gap: 0.35rem;
+      padding: 0.35rem;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.46);
+      backdrop-filter: blur(18px);
+    }
+
+    .nav__links a {
+      padding: 0.62rem 0.95rem;
+      border-radius: 999px;
+      font-size: 0.92rem;
+      font-weight: 800;
+      color: var(--navy);
+    }
+
+    .nav__links a:hover {
+      background: rgba(255, 255, 255, 0.72);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.06fr) minmax(310px, 0.94fr);
+      gap: 1.2rem;
+      align-items: stretch;
+      min-height: calc(100vh - 132px);
+      padding: 3.2rem 0 2rem;
+    }
+
+    .hero__copy {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: clamp(1.2rem, 4vw, 3.2rem);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.74), rgba(255, 255, 255, 0.38));
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(22px);
+    }
+
+    .eyebrow {
+      width: fit-content;
+      padding: 0.45rem 0.8rem;
+      border-radius: 999px;
+      color: var(--red);
+      background: rgba(255, 255, 255, 0.68);
+      font-weight: 900;
+      border: 1px solid rgba(255, 255, 255, 0.72);
+    }
+
+    h1 {
+      max-width: 10em;
+      margin: 1rem 0 0.85rem;
+      color: var(--navy);
+      font-size: clamp(2.35rem, 7vw, 5.5rem);
+      line-height: 1.03;
+      letter-spacing: 0;
+    }
+
+    .hero__lead {
+      max-width: 48rem;
+      margin: 0;
+      color: #393b4a;
+      font-size: clamp(1.05rem, 2vw, 1.35rem);
+      line-height: 1.8;
+      font-weight: 700;
+    }
+
+    .hero__actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 1.5rem;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0.8rem 1.1rem;
+      border-radius: 999px;
+      font-weight: 900;
+      border: 1px solid rgba(255, 255, 255, 0.7);
+      box-shadow: 0 12px 24px rgba(44, 53, 105, 0.14);
+    }
+
+    .button--primary {
+      color: white;
+      background: var(--navy);
+    }
+
+    .button--ghost {
+      color: var(--navy);
+      background: rgba(255, 255, 255, 0.66);
+      backdrop-filter: blur(14px);
+    }
+
+    .hero__visual {
+      display: grid;
+      grid-template-rows: 1fr auto;
+      gap: 1rem;
+      min-height: 520px;
+    }
+
+    .photo-panel {
+      overflow: hidden;
+      min-height: 390px;
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      background: rgba(255, 255, 255, 0.45);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(20px);
+    }
+
+    .photo-panel img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      mix-blend-mode: multiply;
+      opacity: 0.92;
+    }
+
+    .hero__stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.7rem;
+    }
+
+    .stat {
+      padding: 1rem;
+      min-height: 112px;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.66);
+      backdrop-filter: blur(18px);
+      box-shadow: 0 16px 40px rgba(44, 53, 105, 0.12);
+    }
+
+    .stat b {
+      display: block;
+      color: var(--navy);
+      font-size: clamp(1.35rem, 3vw, 2.1rem);
+      line-height: 1;
+    }
+
+    .stat span {
+      display: block;
+      margin-top: 0.45rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+      font-weight: 800;
+      line-height: 1.35;
+    }
+
+    section {
+      padding: 2.6rem 0;
+    }
+
+    .section-title {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    h2 {
+      margin: 0;
+      color: var(--navy);
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      line-height: 1.12;
+      letter-spacing: 0;
+    }
+
+    .section-title p {
+      max-width: 34rem;
+      margin: 0;
+      color: var(--muted);
+      font-weight: 700;
+      line-height: 1.7;
+    }
+
+    .courses {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .course {
+      min-height: 320px;
+      padding: clamp(1rem, 2.4vw, 1.55rem);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: linear-gradient(150deg, rgba(255, 255, 255, 0.76), rgba(255, 255, 255, 0.42));
+      box-shadow: 0 18px 52px rgba(44, 53, 105, 0.13);
+      backdrop-filter: blur(18px);
+    }
+
+    .course--warm {
+      background: linear-gradient(150deg, rgba(255, 238, 221, 0.82), rgba(255, 255, 255, 0.44));
+    }
+
+    .course h3 {
+      margin: 0 0 0.8rem;
+      color: var(--ink);
+      font-size: clamp(1.45rem, 3vw, 2rem);
+      line-height: 1.25;
+      letter-spacing: 0;
+    }
+
+    .course h3 span {
+      color: var(--red);
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      margin-bottom: 1rem;
+      padding: 0.45rem 0.8rem;
+      border-radius: 999px;
+      color: var(--navy);
+      background: rgba(255, 252, 226, 0.82);
+      font-weight: 900;
+    }
+
+    .course p,
+    .course li,
+    .feature li,
+    .contact li {
+      color: #3f414d;
+      font-size: 1rem;
+      font-weight: 700;
+      line-height: 1.75;
+    }
+
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    li {
+      position: relative;
+      padding-left: 1.25rem;
+    }
+
+    li + li {
+      margin-top: 0.55rem;
+    }
+
+    li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.75em;
+      width: 0.5rem;
+      height: 0.5rem;
+      border-radius: 2px;
+      background: var(--navy);
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: 0.96fr 1.04fr;
+      gap: 1rem;
+      align-items: stretch;
+    }
+
+    .classroom-gallery {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-auto-rows: 320px;
+      gap: 1rem;
+    }
+
+    .classroom-photo {
+      position: relative;
+      overflow: hidden;
+      min-height: 230px;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: rgba(255, 255, 255, 0.58);
+      box-shadow: 0 18px 52px rgba(44, 53, 105, 0.13);
+      backdrop-filter: blur(18px);
+    }
+
+    .classroom-photo:first-child {
+      min-height: 320px;
+    }
+
+    .classroom-photo img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      min-height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .classroom-photo figcaption {
+      position: absolute;
+      left: 1rem;
+      bottom: 1rem;
+      max-width: calc(100% - 2rem);
+      padding: 0.45rem 0.7rem;
+      border: 1px solid rgba(255, 255, 255, 0.48);
+      border-radius: 999px;
+      color: white;
+      background: rgba(34, 35, 51, 0.5);
+      backdrop-filter: blur(14px);
+      font-size: 0.92rem;
+      font-weight: 900;
+      line-height: 1.35;
+    }
+
+    .feature {
+      padding: clamp(1rem, 2.8vw, 1.8rem);
+      border: 1px solid var(--line);
+      border-radius: 26px;
+      background: rgba(255, 255, 255, 0.7);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(20px);
+    }
+
+    .feature h3 {
+      margin: 0 0 1rem;
+      color: var(--navy);
+      font-size: clamp(1.4rem, 3vw, 2.1rem);
+      letter-spacing: 0;
+    }
+
+    .core {
+      display: grid;
+      gap: 0.85rem;
+      align-content: center;
+      min-height: 100%;
+      padding: clamp(1rem, 3vw, 2rem);
+      border-radius: 28px;
+      color: white;
+      background:
+        linear-gradient(rgba(44, 53, 105, 0.84), rgba(44, 53, 105, 0.84)),
+        url("https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=1400&q=80") center / cover;
+      box-shadow: var(--shadow);
+    }
+
+    .core__item {
+      padding: 1.15rem;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.14);
+      backdrop-filter: blur(12px);
+      font-size: clamp(1.2rem, 2.8vw, 2rem);
+      font-weight: 900;
+      line-height: 1.25;
+    }
+
+    .contact-band {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 1rem;
+      align-items: center;
+      margin-bottom: 3rem;
+      padding: clamp(1.15rem, 3vw, 2rem);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      background: linear-gradient(135deg, rgba(44, 53, 105, 0.88), rgba(59, 141, 116, 0.78));
+      color: white;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(18px);
+    }
+
+    .contact-band h2 {
+      color: white;
+      font-size: clamp(1.7rem, 3.6vw, 3rem);
+    }
+
+    .contact-band p {
+      margin: 0.5rem 0 0;
+      font-weight: 700;
+      line-height: 1.7;
+      color: rgba(255, 255, 255, 0.86);
+    }
+
+    .contact {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.75rem;
+      margin-top: 1.2rem;
+    }
+
+    .contact li {
+      min-height: 82px;
+      padding: 1rem;
+      border-radius: 18px;
+      color: white;
+      background: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.22);
+    }
+
+    .contact li::before {
+      display: none;
+    }
+
+    .contact small {
+      display: block;
+      margin-bottom: 0.2rem;
+      color: rgba(255, 255, 255, 0.72);
+      font-weight: 800;
+    }
+
+    .line-row {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      width: fit-content;
+    }
+
+    .line-icon {
+      display: inline-grid;
+      width: 28px;
+      height: 28px;
+      place-items: center;
+      border-radius: 8px;
+      color: white;
+      background: #06c755;
+      font-size: 0.76rem;
+      font-weight: 900;
+      line-height: 1;
+      box-shadow: inset 0 -2px 0 rgba(0, 0, 0, 0.12);
+    }
+
+    .badge {
+      display: grid;
+      width: 108px;
+      height: 108px;
+      place-items: center;
+      border-radius: 50%;
+      color: var(--navy);
+      background: var(--gold);
+      font-weight: 900;
+      text-align: center;
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.18);
+    }
+
+    @media (max-width: 920px) {
+      .nav {
+        align-items: start;
+        flex-direction: column;
+      }
+
+      .nav__links {
+        width: 100%;
+        overflow-x: auto;
+        justify-content: start;
+      }
+
+      .hero,
+      .feature-grid,
+      .classroom-gallery,
+      .contact-band {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        min-height: auto;
+        padding-top: 1.6rem;
+      }
+
+      .hero__visual {
+        min-height: auto;
+      }
+
+      .photo-panel {
+        min-height: 320px;
+      }
+
+      .section-title {
+        display: block;
+      }
+
+      .section-title p {
+        margin-top: 0.75rem;
+      }
+
+      .badge {
+        width: 96px;
+        height: 96px;
+      }
+
+      .classroom-photo:first-child {
+        min-height: 360px;
+      }
+    }
+
+    @media (max-width: 680px) {
+      .site {
+        width: min(100% - 20px, 1180px);
+      }
+
+      .marquee__group {
+        gap: 1rem;
+        font-size: 0.88rem;
+      }
+
+      .nav__links a {
+        padding: 0.55rem 0.75rem;
+        font-size: 0.86rem;
+      }
+
+      .hero__copy,
+      .course,
+      .feature,
+      .contact-band {
+        border-radius: 20px;
+      }
+
+      .hero__stats,
+      .courses,
+      .contact {
+        grid-template-columns: 1fr;
+      }
+
+      .stat {
+        min-height: auto;
+      }
+
+      .photo-panel {
+        min-height: 240px;
+        border-radius: 20px;
+      }
+
+      .classroom-photo,
+      .classroom-photo:first-child {
+        min-height: 260px;
+        border-radius: 20px;
+      }
+
+      .classroom-gallery {
+        grid-auto-rows: auto;
+      }
+
+      section {
+        padding: 1.7rem 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="marquee" aria-label="招生最新消息">
+      <div class="marquee__track">
+      <div class="marquee__group">
+        <span><strong>現正招生中</strong>｜國小安親課輔班・中高年級升學課程</span>
+      </div>
+    </div>
+  </div>
+
+  <main class="site">
+    <nav class="nav" aria-label="主選單">
+      <a class="brand" href="#">
+        <span class="brand__mark"><img src="../../Downloads/yyx.jpg" alt=""></span>
+        <span class="brand__name">楊宜修國文文理補習班</span>
+      </a>
+      <div class="nav__links">
+        <a href="#courses">課程</a>
+        <a href="#after-school">安親課輔</a>
+        <a href="#classroom">照片</a>
+        <a href="#features">特色</a>
+        <a href="#contact">聯絡</a>
+      </div>
+    </nav>
+
+    <header class="hero">
+      <div class="hero__copy">
+        <span class="eyebrow">小班制・系統化・看得見的進步</span>
+        <h1>國小安親與中高年級升學課程</h1>
+        <p class="hero__lead">
+          從作業完成、考前複習到國英數能力養成，為每位孩子安排清楚的學習節奏。
+          老師即時掌握作業、小考與成績狀況，讓學習不再只是壓力，而是能被整理、被陪伴、被推進的日常。
+        </p>
+        <div class="hero__actions">
+          <a class="button button--primary" href="#contact">立即電話詢問</a>
+          <a class="button button--ghost" href="#courses">查看課程內容</a>
+        </div>
+      </div>
+
+      <div class="hero__visual" aria-label="學習情境與課程重點">
+        <div class="photo-panel">
+          <img src="https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=1200&q=80" alt="學生在桌前閱讀與書寫">
+        </div>
+        <div class="hero__stats">
+          <div class="stat">
+            <b>3-6</b>
+            <span>國小安親適合年級</span>
+          </div>
+          <div class="stat">
+            <b>5+</b>
+            <span>字音字型、閱讀、文意等國文核心</span>
+          </div>
+          <div class="stat">
+            <b>1:1</b>
+            <span>個別引導與學習回饋</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section id="classroom" aria-labelledby="classroom-title">
+      <div class="section-title">
+        <h2 id="classroom-title">課堂側拍</h2>
+        <p>真實教室情境，從國文課堂、實驗活動到課後練習，讓孩子在穩定節奏裡專注學習。</p>
+      </div>
+
+      <div class="classroom-gallery">
+        <figure class="classroom-photo">
+          <img src="../../Downloads/S__5964030.jpg" alt="國文課堂中老師在黑板前授課，學生坐在教室中聽講">
+          <figcaption>國文課堂實景</figcaption>
+        </figure>
+        <figure class="classroom-photo">
+          <img src="../../Downloads/S__5964023_0.jpg" alt="老師帶領學生進行課堂實作活動">
+          <figcaption>小班互動實作</figcaption>
+        </figure>
+        <figure class="classroom-photo">
+          <img src="../../Downloads/S__5964024_0.jpg" alt="學生在教室中分組操作課堂活動">
+          <figcaption>分組活動與討論</figcaption>
+        </figure>
+        <figure class="classroom-photo">
+          <img src="../../Downloads/S__5964025_0.jpg" alt="學生看著螢幕教材並書寫練習">
+          <figcaption>課中練習與引導</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section id="courses" aria-labelledby="courses-title">
+      <div class="section-title">
+        <h2 id="courses-title">中、高年級課程</h2>
+        <p>依學生階段安排校內進度、檢定訓練與升學能力養成，補足基礎，也建立解題與應考實力。</p>
+      </div>
+
+      <div class="courses">
+        <article class="course">
+          <div class="pill">課程內容</div>
+          <h3>高年級 <span>資優數學</span> 課程</h3>
+          <p>
+            專為國小五、六年級學生設計，內容深入但有趣，協助學生建立扎實數學基礎，
+            挑戰更高層次的數學能力。
+          </p>
+        </article>
+
+        <article class="course course--warm">
+          <div class="pill">課程內容</div>
+          <h3>中年級 <span>資優數學</span> 課程</h3>
+          <p>
+            以同步校內進度、邏輯演算與檢定訓練為主軸，強化數學基礎與解題思維，
+            奠定良好的數學檢定實力。
+          </p>
+        </article>
+
+        <article class="course course--warm">
+          <div class="pill">課程內容</div>
+          <h3>中、高年級 <span>資優英文</span> 課程</h3>
+          <ul>
+            <li>提升美語能力，銜接國中英文</li>
+            <li>目標報考私中學童，強化私中入學考試應考能力</li>
+          </ul>
+        </article>
+
+        <article class="course">
+          <div class="pill">課程內容</div>
+          <h3>中、高年級 <span>私中國文</span> 課程</h3>
+          <ul>
+            <li>字音字型</li>
+            <li>語文常識與國學常識</li>
+            <li>文意判斷與閱讀理解</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section id="after-school" aria-labelledby="after-school-title">
+      <div class="section-title">
+        <h2 id="after-school-title">國小安親課輔班</h2>
+        <p>適合國小三到六年級學生，以全方位學習輔導計畫，打造孩子穩定又有競爭力的學習節奏。</p>
+      </div>
+
+      <div class="feature-grid">
+        <div class="core">
+          <div class="core__item">全方位<br>學習輔導計畫</div>
+          <div class="core__item">五大教學核心<br>打造孩子競爭力</div>
+        </div>
+
+        <article class="feature">
+          <h3>課輔班特色</h3>
+          <ul>
+            <li>課業同步完成：專業導師細心指導，確保學校作業品質，並即時糾正錯誤觀念。</li>
+            <li>考前重點掌握：每日安排隔日考試內容複習，針對重點口頭檢核。</li>
+            <li>單元實力評量：每週定期安排各科評量書寫，配合導師親自輔導。</li>
+            <li>段考強化特訓：月考前啟動專案複習，彙整各校常考題型與核心概念。</li>
+            <li>客製化輔導策略：依照孩子狀況安排練習卷，給予最適合、最需要的練習。</li>
+            <li>放學接送：讓家長安心銜接孩子放學後的學習時段。</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section id="features" aria-labelledby="features-title">
+      <div class="section-title">
+        <h2 id="features-title">課程特色</h2>
+        <p>老師把孩子的學習狀況整理成能追蹤、能調整的日常安排，讓進步有方向，也讓家長看得到。</p>
+      </div>
+
+      <article class="feature">
+        <ul>
+          <li>小班制教學：每位學生都能被照顧到，提供個別引導與回饋。</li>
+          <li>系統化訓練：由淺入深、層層累積，不只是做題，而是會思考。</li>
+          <li>作業與成績回饋：每週安排作業、小考與成績追蹤，掌握學習狀況。</li>
+          <li>作業輔導與思維引導二合一：兼顧每日完成度與長期能力養成。</li>
+        </ul>
+      </article>
+    </section>
+
+    <section id="contact" class="contact-band" aria-labelledby="contact-title">
+      <div>
+        <h2 id="contact-title">上課時間與更多訊息，歡迎加入官方 Line 了解</h2>
+        <p>楊宜修國文文理補習班｜中市北屯區崇德路二段196號2樓</p>
+        <ul class="contact">
+          <li><small>電話</small>04-22479111</li>
+          <li><small>Line</small><span class="line-row"><span class="line-icon" aria-hidden="true">LINE</span>@996ajziy</span></li>
+        </ul>
+      </div>
+      <div class="badge">歡迎<br>預約<br>諮詢</div>
+    </section>
+  </main>
+</body>
+</html>
