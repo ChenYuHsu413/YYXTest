@@ -18,6 +18,11 @@
       box-sizing: border-box;
     }
 
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 132px;
+    }
+
     body {
       margin: 0;
       min-height: 100vh;
@@ -88,37 +93,45 @@
     }
 
     .nav {
+      position: sticky;
+      top: 3.25rem;
+      z-index: 18;
       display: grid;
-      grid-template-columns: 1fr;
-      justify-items: center;
-      gap: 1rem;
-      padding: 1.25rem 0 0;
+      grid-template-columns: auto minmax(0, 1fr);
+      align-items: center;
+      gap: 0.85rem;
+      margin-top: 0.85rem;
+      padding: 0.55rem;
+      border: 1px solid rgba(255, 255, 255, 0.48);
+      border-radius: 22px;
+      background: rgba(255, 255, 255, 0.7);
+      box-shadow: 0 18px 48px rgba(44, 53, 105, 0.14);
+      backdrop-filter: blur(22px);
     }
 
     .brand {
       position: relative;
       display: flex;
       align-items: center;
-      justify-content: center;
-      min-height: 112px;
-      width: min(100%, 760px);
-      text-align: center;
+      justify-content: flex-start;
+      gap: 0.6rem;
+      min-height: 48px;
+      min-width: 0;
       font-weight: 900;
       color: var(--navy);
     }
 
     .brand__mark {
-      position: absolute;
-      left: 50%;
-      top: 50%;
+      position: relative;
+      flex: 0 0 auto;
       z-index: 0;
       display: block;
-      width: clamp(118px, 20vw, 178px);
-      height: clamp(118px, 20vw, 178px);
+      width: 44px;
+      height: 44px;
       overflow: hidden;
       border-radius: 50%;
-      opacity: 0.18;
-      transform: translate(-50%, -50%);
+      opacity: 0.52;
+      transform: none;
       filter: saturate(0.85);
     }
 
@@ -134,8 +147,11 @@
     .brand__name {
       position: relative;
       z-index: 1;
-      font-size: clamp(1.85rem, 5vw, 3.8rem);
-      line-height: 1.15;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      font-size: clamp(1rem, 2.2vw, 1.42rem);
+      line-height: 1.2;
       letter-spacing: 0;
       text-shadow: 0 2px 18px rgba(255, 255, 255, 0.86);
     }
@@ -143,6 +159,8 @@
     .nav__links {
       display: flex;
       gap: 0.35rem;
+      justify-self: end;
+      max-width: 100%;
       padding: 0.35rem;
       border: 1px solid var(--line);
       border-radius: 999px;
@@ -160,6 +178,34 @@
 
     .nav__links a:hover {
       background: rgba(255, 255, 255, 0.72);
+    }
+
+    .back-to-top {
+      position: fixed;
+      right: clamp(1rem, 3vw, 1.6rem);
+      bottom: clamp(1rem, 3vw, 1.6rem);
+      z-index: 25;
+      display: grid;
+      width: 48px;
+      height: 48px;
+      place-items: center;
+      border: 1px solid rgba(255, 255, 255, 0.66);
+      border-radius: 50%;
+      color: white;
+      background: rgba(44, 53, 105, 0.9);
+      box-shadow: 0 16px 36px rgba(44, 53, 105, 0.26);
+      backdrop-filter: blur(16px);
+      font-size: 1.35rem;
+      font-weight: 900;
+      line-height: 1;
+      transition: transform 160ms ease, background 160ms ease;
+    }
+
+    .back-to-top:hover,
+    .back-to-top:focus-visible {
+      background: rgba(59, 141, 116, 0.94);
+      transform: translateY(-2px);
+      outline: none;
     }
 
     .hero {
@@ -646,8 +692,9 @@
 
     @media (max-width: 920px) {
       .nav {
-        align-items: start;
-        flex-direction: column;
+        top: 2.75rem;
+        grid-template-columns: 1fr;
+        align-items: stretch;
       }
 
       .nav__links {
@@ -707,6 +754,21 @@
       .nav__links a {
         padding: 0.55rem 0.75rem;
         font-size: 0.86rem;
+      }
+
+      .brand__mark {
+        width: 38px;
+        height: 38px;
+      }
+
+      .brand__name {
+        font-size: 1rem;
+      }
+
+      .back-to-top {
+        width: 44px;
+        height: 44px;
+        font-size: 1.2rem;
       }
 
       .hero__copy,
