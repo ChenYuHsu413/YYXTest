@@ -586,9 +586,9 @@
     }
 
     .map-icon {
-      color: #fff9e9;
-      font-size: 1.2rem;
-      line-height: 1;
+      width: 21px;
+      height: 21px;
+      fill: #fff9e9;
     }
 
     .contact {
