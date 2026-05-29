@@ -578,6 +578,10 @@
 
     .map-link:hover,
     .map-link:focus-visible,
+    .phone-row:hover,
+    .phone-row:focus-visible,
+    .line-row:hover,
+    .line-row:focus-visible,
     .facebook-link:hover,
     .facebook-link:focus-visible {
       background: rgba(255, 255, 255, 0.24);
@@ -639,6 +643,10 @@
       align-items: center;
       gap: 0.5rem;
       width: fit-content;
+      margin: -0.2rem;
+      padding: 0.2rem;
+      border-radius: 10px;
+      transition: transform 160ms ease, background 160ms ease;
     }
 
     .phone-icon,
