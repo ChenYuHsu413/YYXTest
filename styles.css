@@ -354,9 +354,7 @@ h3 {
 }
 
 .section > * {
-  max-width: 1280px;
-  margin-left: auto;
-  margin-right: auto;
+  max-width: none;
 }
 
 .section__head {
@@ -402,10 +400,6 @@ h3 {
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1rem;
   align-items: stretch;
-}
-
-#dm > * {
-  max-width: min(1680px, calc(100vw - clamp(2rem, 8vw, 8rem)));
 }
 
 .teacher-showcase article,
@@ -517,6 +511,10 @@ h3 {
   background: var(--green);
 }
 
+#results > * {
+  max-width: none;
+}
+
 .section--dark h2,
 .section--dark .eyebrow,
 .section--dark .section__head--split > p {
@@ -534,7 +532,7 @@ h3 {
 }
 
 .metrics--wide {
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .metrics div {
@@ -568,18 +566,14 @@ h3 {
   gap: 1rem;
 }
 
-.admission-board article,
-.math-elite-panel,
-.honor-list-panel {
+.admission-board article {
   padding: 1.25rem;
   border-radius: 8px;
   color: var(--green);
   background: white;
 }
 
-.admission-board h3,
-.math-elite-panel h3,
-.honor-list-panel h3 {
+.admission-board h3 {
   margin-bottom: 0.7rem;
 }
 
@@ -599,61 +593,44 @@ h3 {
   margin-top: 0.35rem;
 }
 
-.elite-table {
+.result-proof-layout {
   display: grid;
-  gap: 0.7rem;
-}
-
-.elite-table div {
-  display: grid;
-  grid-template-columns: 0.8fr 1.2fr 1fr 0.9fr;
-  gap: 0.8rem;
-  align-items: center;
-  padding: 0.85rem 1rem;
-  border-radius: 8px;
-  background: #f5edd2;
-}
-
-.elite-table span {
-  font-weight: 900;
-}
-
-.elite-table b,
-.elite-table strong,
-.elite-table em {
-  color: var(--green);
-  font-size: clamp(1.15rem, 2vw, 1.8rem);
-  font-style: normal;
-  font-weight: 900;
-}
-
-.elite-table strong,
-.elite-table em {
-  color: var(--coral);
-}
-
-.honor-list-panel {
-  display: grid;
-  grid-template-columns: 0.28fr minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.18fr);
   gap: 1rem;
-  align-items: center;
+  align-items: start;
 }
 
-.honor-list-panel img,
-.result-proof-grid img {
+.math-results-stack,
+.admission-proof {
+  display: grid;
+  gap: 1rem;
+}
+
+.math-results-stack img,
+.admission-proof img {
+  display: block;
   width: 100%;
+  height: auto;
+  object-fit: contain;
   border-radius: 8px;
   background: white;
 }
 
-.result-proof-grid {
-  display: grid;
-  gap: 1rem;
+.math-results-stack img:first-child {
+  aspect-ratio: 1382 / 751;
+}
+
+.math-results-stack img:last-child {
+  aspect-ratio: 960 / 610;
+}
+
+.admission-proof img {
+  aspect-ratio: 1 / 1;
 }
 
 .expanded-card-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 1rem;
 }
 
@@ -744,7 +721,7 @@ h3 {
 }
 
 .contact-section > * {
-  max-width: 1280px;
+  max-width: none;
 }
 
 .contact-section h2,
@@ -856,8 +833,7 @@ h3 {
   .hero,
   .section__head--split,
   .contact-section,
-  .teacher-showcase,
-  .honor-list-panel {
+  .teacher-showcase {
     grid-template-columns: 1fr;
   }
 
@@ -880,6 +856,7 @@ h3 {
   .program-grid,
   .metrics--wide,
   .admission-board,
+  .result-proof-layout,
   .expanded-card-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -923,7 +900,7 @@ h3 {
 
   main,
   .nav {
-    width: min(100% - 20px, 1180px);
+    width: calc(100% - 20px);
   }
 
   main {
@@ -965,6 +942,7 @@ h3 {
   .program-grid,
   .metrics--wide,
   .admission-board,
+  .result-proof-layout,
   .expanded-card-grid,
   .photo-grid {
     grid-template-columns: 1fr;
@@ -978,10 +956,6 @@ h3 {
     display: block;
     margin-top: 0.5rem;
     text-align: left;
-  }
-
-  .elite-table div {
-    grid-template-columns: 1fr;
   }
 
   .teacher-center {
