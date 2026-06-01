@@ -24,6 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const panels = document.querySelectorAll('[data-panel]');
   const counters = document.querySelectorAll('.counter');
   const progressRings = document.querySelectorAll('.progress-ring');
+  const trendBars = document.querySelectorAll('.trend-bar');
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   const formatValue = (value, decimals) => {
@@ -124,6 +125,54 @@ document.addEventListener('DOMContentLoaded', () => {
 
   progressRings.forEach((ring) => progressObserver.observe(ring));
 
+  const runTrendBar = (bar) => {
+    if (bar.dataset.trended === 'true') {
+      return;
+    }
+
+    const target = Number(bar.dataset.bar || 0);
+    const delay = Number(bar.closest('.trend-item')?.dataset.delay || 0);
+
+    const animate = () => {
+      if (reduceMotion) {
+        bar.style.setProperty('--bar-current', `${target}%`);
+        bar.dataset.trended = 'true';
+        return;
+      }
+
+      const duration = 900;
+      const startTime = performance.now();
+
+      const tick = (now) => {
+        const elapsed = Math.min((now - startTime) / duration, 1);
+        const eased = 1 - Math.pow(1 - elapsed, 3);
+        bar.style.setProperty('--bar-current', `${target * eased}%`);
+
+        if (elapsed < 1) {
+          requestAnimationFrame(tick);
+        } else {
+          bar.style.setProperty('--bar-current', `${target}%`);
+          bar.dataset.trended = 'true';
+        }
+      };
+
+      requestAnimationFrame(tick);
+    };
+
+    window.setTimeout(animate, reduceMotion ? 0 : delay);
+  };
+
+  const trendObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        runTrendBar(entry.target);
+        trendObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.35 });
+
+  trendBars.forEach((bar) => trendObserver.observe(bar));
+
   tabButtons.forEach((button) => {
     button.addEventListener('click', () => {
       const target = button.dataset.tab;
@@ -145,6 +194,9 @@ document.addEventListener('DOMContentLoaded', () => {
           });
           panel.querySelectorAll('.progress-ring').forEach((ring) => {
             progressObserver.observe(ring);
+          });
+          panel.querySelectorAll('.trend-bar').forEach((bar) => {
+            trendObserver.observe(bar);
           });
         }
       });

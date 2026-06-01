@@ -65,13 +65,7 @@
     </section>
 
     <section id="departments" class="section-shell">
-      <div class="section-heading">
-        <p class="eyebrow">Departmental Sections</p>
-        <h2>三大分部入口，對應不同升學任務</h2>
-        <p>以動態切換呈現國小、國中、高中重點，讓家長快速找到孩子現在最需要的學習系統。</p>
-      </div>
-
-      <div class="mt-8 flex flex-wrap gap-2" role="tablist" aria-label="分部入口切換">
+      <div class="flex flex-wrap gap-2" role="tablist" aria-label="分部入口切換">
         <button class="tab-btn is-active" type="button" role="tab" aria-selected="true" data-tab="elementary">國小部｜私中銜接</button>
         <button class="tab-btn" type="button" role="tab" aria-selected="false" data-tab="junior">國中部｜會考全科</button>
         <button class="tab-btn tab-senior" type="button" role="tab" aria-selected="false" data-tab="senior">高中部｜卓越深造</button>
@@ -89,7 +83,51 @@
               <span>曉明、葳格等多校名校榜單</span>
             </div>
           </div>
-          <img src="./sources/115私中申請入學榜單.jpg" alt="國小部私中申請入學榜單，呈現衛道、明道、曉明、葳格等多校錄取成果。">
+          <div class="power-map" aria-label="國小部私中戰力地圖">
+            <div class="power-map-score">
+              <span>115 私中錄取總數</span>
+              <strong><span class="counter" data-target="11" data-suffix=" 人次">0</span></strong>
+              <em>衛道重點突破 <b class="counter" data-target="6" data-suffix=" 人次">0</b></em>
+            </div>
+            <div class="power-map-grid">
+              <div class="school-column source-schools">
+                <strong>來源國小</strong>
+                <span>育仁</span>
+                <span>潭陽</span>
+                <span>頭家</span>
+                <span>文昌</span>
+                <span>軍功</span>
+                <span>文心</span>
+              </div>
+              <svg class="map-lines" viewBox="0 0 260 220" aria-hidden="true">
+                <path d="M10 28 C96 26 150 20 250 28"></path>
+                <path d="M10 62 C100 66 152 54 250 78"></path>
+                <path d="M10 96 C92 104 150 98 250 126"></path>
+                <path d="M10 130 C104 130 158 150 250 174"></path>
+                <path d="M10 164 C94 152 152 80 250 28"></path>
+                <path d="M10 198 C106 194 156 126 250 78"></path>
+              </svg>
+              <div class="school-column target-schools">
+                <strong>錄取私中</strong>
+                <span class="gold-school">衛道 <b>6 人次</b></span>
+                <span>明道 <b>2 人次</b></span>
+                <span>曉明</span>
+                <span>葳格</span>
+              </div>
+            </div>
+            <div class="multi-school-cards">
+              <article>
+                <strong>呂○菲</strong>
+                <span>多校錄取成就卡</span>
+                <p>穩定閱讀力與表達力，展現私中銜接菁英教學成效。</p>
+              </article>
+              <article>
+                <strong>吳○霏</strong>
+                <span>多校錄取成就卡</span>
+                <p>跨校榜單突破，證明思考訓練能轉化為升學成果。</p>
+              </article>
+            </div>
+          </div>
         </article>
 
         <article class="department-panel panel-blue" data-panel="junior" hidden>
@@ -120,7 +158,31 @@
                   <span class="ring-label">第三次模考</span>
                 </div>
               </div>
-              <p class="score-trend">A++ 人數從 <b class="counter" data-target="5" data-suffix=" 人">0</b> 穩定成長至 <b class="counter" data-target="7" data-suffix=" 人">0</b>，高標學生群持續擴大。</p>
+              <div class="a-plus-trend" aria-label="A++ 人數增長趨勢">
+                <div class="trend-head">
+                  <strong>115 國三數學菁英班 A++ 成長曲線</strong>
+                  <span>A 以上比例三次皆穩定 <b>94.44%</b></span>
+                </div>
+                <div class="trend-growth-track" aria-hidden="true">
+                  <span>+1 成長</span>
+                  <span>+1 再提升</span>
+                </div>
+                <div class="trend-bars">
+                  <div class="trend-item" data-delay="0">
+                    <span class="trend-bar" data-bar="71"><b class="counter" data-target="5" data-suffix=" 人">0</b></span>
+                    <small>第一次</small>
+                  </div>
+                  <div class="trend-item" data-delay="160">
+                    <span class="trend-bar" data-bar="86"><b class="counter" data-target="6" data-suffix=" 人">0</b></span>
+                    <small>第二次</small>
+                  </div>
+                  <div class="trend-item" data-delay="320">
+                    <span class="trend-bar" data-bar="100"><b class="counter" data-target="7" data-suffix=" 人">0</b></span>
+                    <small>第三次</small>
+                  </div>
+                </div>
+                <p class="score-trend">A++ 人數從 5 人穩定成長至 7 人，展現補習班對拔尖教育的成效。</p>
+              </div>
             </div>
             <ol class="timeline" aria-label="會考 A 計畫進度軸">
               <li><strong>暑期總複習</strong><span>完成 1-3 冊核心觀念整理</span></li>
@@ -141,9 +203,14 @@
               <span>寫作 18.5 分</span>
               <span>台大級師資領軍</span>
             </div>
+            <div class="senior-shine-card">
+              <span>頂標 / 前標比例</span>
+              <strong><span class="counter" data-target="64" data-suffix="%">0</span></strong>
+              <p>依據學測英文耀眼榜單，全班 64% 獲得 10 級分以上，頂標 12%、前標 32%，展現穩定深造實力。</p>
+            </div>
             <a class="btn-primary btn-shine mt-7" href="#contact">預約高中部諮詢</a>
           </div>
-          <div class="empty-media" aria-label="高中部圖片暫留空"></div>
+          <img src="./sources/messageImage_1780108063330.jpg" alt="高中部學測英文耀眼榜單，顯示全班 64% 獲得 10 級分以上，頂標 12%、前標 32%。">
         </article>
       </div>
     </section>
@@ -160,30 +227,35 @@
             <img class="teacher-avatar-img" src="./sources/char.png" alt="楊宜修老師簡易人像代表頭像">
             <div class="badges"><span>台大中文博士班</span><span>30 年資歷</span><span>閱讀素養</span><span>一生專注</span></div>
             <h3>楊宜修｜國文</h3>
+            <div class="teacher-schedule"><strong>排課</strong><span>週二 / 週四晚間 6:00-9:30</span><span>週六晚間 6:00-9:30（學測結束後）</span></div>
             <p>以閱讀、思考與表達為核心，帶學生從素養扎根走向升學成果。</p>
           </article>
           <article class="teacher-card">
             <img class="teacher-avatar-img" src="./sources/char.png" alt="章子瑜老師簡易人像代表頭像">
             <div class="badges"><span>台大雙碩士</span><span>護班神山</span><span>觀念建立</span></div>
             <h3>章子瑜｜數學</h3>
+            <div class="teacher-schedule"><strong>排課</strong><span>週六晚間 6:30-9:30（常態）</span><span>週日下午 3:00-6:00（菁英）</span></div>
             <p>重視觀念底層結構與解題路徑，協助學生把數學變成穩定得分科。</p>
           </article>
           <article class="teacher-card">
             <img class="teacher-avatar-img" src="./sources/char.png" alt="Victor 老師簡易人像代表頭像">
             <div class="badges"><span>25 年經驗</span><span>文法邏輯</span><span>命題精準</span></div>
             <h3>Victor｜英文</h3>
+            <div class="teacher-schedule"><strong>排課</strong><span>週一晚間 6:30-9:30</span><span>週六晚間 6:00-9:00</span></div>
             <p>用文法邏輯拆解閱讀與寫作，讓學生掌握命題者真正想考的能力。</p>
           </article>
           <article class="teacher-card">
             <img class="teacher-avatar-img" src="./sources/char.png" alt="自然科老師簡易人像代表頭像">
-            <div class="badges"><span>克服盲點</span><span>最懂痛點</span><span>精良筆記</span></div>
+            <div class="badges"><span>克服盲點</span><span>最懂痛點</span><span>精良筆記</span><span>貼合考試需求</span></div>
             <h3>林詠鈞 / 許煬｜自然</h3>
+            <div class="teacher-schedule"><strong>排課</strong><span>週六上午 9:00-12:00</span><span>週六下午 1:00-4:00（衛道 / 菁英）</span></div>
             <p>以圖像化筆記與盲點修正，幫學生補起理化、生物、地科的關鍵環節。</p>
           </article>
           <article class="teacher-card">
             <img class="teacher-avatar-img" src="./sources/char.png" alt="大雄老師簡易人像代表頭像">
             <div class="badges"><span>萬冊筆記作者</span><span>學霸級架構</span></div>
             <h3>大雄｜社會</h3>
+            <div class="teacher-schedule"><strong>排課</strong><span>週日上午 9:00-12:00</span></div>
             <p>將歷史、地理、公民整理成可理解可記憶的架構，提升社會科答題效率。</p>
           </article>
         </div>
