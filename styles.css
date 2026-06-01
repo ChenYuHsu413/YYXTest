@@ -19,6 +19,7 @@ html {
 
 body {
   font-family: "Noto Sans TC", "Microsoft JhengHei", Arial, sans-serif;
+  overflow-x: hidden;
 }
 
 img {
@@ -849,6 +850,249 @@ img {
   background: #ffffff;
 }
 
+.achievement-section {
+  background:
+    linear-gradient(180deg, #f8fafc, #ffffff 42%, #eef6ff);
+}
+
+.achievement-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.achievement-grid article {
+  overflow: hidden;
+  border: 1px solid rgba(11, 31, 58, 0.1);
+  border-radius: 8px;
+  background: #ffffff;
+  box-shadow: 0 18px 42px rgba(11, 31, 58, 0.08);
+}
+
+.achievement-grid img {
+  width: 100%;
+  max-height: 360px;
+  object-fit: contain;
+  background: #f8fafc;
+}
+
+.card-kicker {
+  margin: 0 0 0.5rem;
+  color: #9a6b00;
+  font-size: 0.8rem;
+  font-weight: 1000;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.achievement-grid h3 {
+  color: var(--academy);
+  font-size: clamp(1.35rem, 3vw, 2rem);
+  font-weight: 1000;
+  line-height: 1.18;
+}
+
+.achievement-grid h3 span {
+  color: var(--gold);
+  text-shadow: 0 2px 0 rgba(11, 31, 58, 0.74), 0 8px 18px rgba(250, 204, 21, 0.28);
+}
+
+.achievement-grid p {
+  margin-top: 0.75rem;
+  color: #475569;
+  font-weight: 750;
+  line-height: 1.7;
+}
+
+.scholarship-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(220px, 0.82fr);
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.award-list {
+  display: grid;
+  gap: 0.55rem;
+  margin-top: 1rem;
+}
+
+.award-list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  border-radius: 8px;
+  padding: 0.65rem 0.75rem;
+  background: #f8fafc;
+}
+
+.award-list strong {
+  color: var(--academy);
+  font-weight: 1000;
+}
+
+.award-list span {
+  color: #9a6b00;
+  font-weight: 950;
+}
+
+.stability-card,
+.elite-list-card,
+.science-depth-card,
+.teaching-icons-card {
+  padding: 1rem;
+}
+
+.a-share-chart {
+  display: grid;
+  gap: 0.65rem;
+  margin: 1rem 0;
+}
+
+.a-share-bar {
+  position: relative;
+  display: grid;
+  grid-template-columns: 4rem 1fr auto;
+  gap: 0.75rem;
+  align-items: center;
+  border-radius: 999px;
+  padding: 0.55rem 0.75rem;
+  color: #ffffff;
+  background: #1a2b48;
+}
+
+.a-share-bar::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: calc(var(--share) * 3.2);
+  max-width: 82%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, rgba(250, 204, 21, 0.86), rgba(250, 204, 21, 0.18));
+}
+
+.a-share-bar span,
+.a-share-bar strong {
+  position: relative;
+  z-index: 1;
+}
+
+.a-share-bar span {
+  font-weight: 1000;
+}
+
+.a-share-bar strong {
+  color: var(--gold);
+  text-shadow: 0 2px 0 rgba(11, 31, 58, 0.72);
+}
+
+.elite-list {
+  display: grid;
+  gap: 0.65rem;
+  margin: 1rem 0;
+}
+
+.elite-list div {
+  border-left: 4px solid var(--gold);
+  border-radius: 0 8px 8px 0;
+  padding: 0.65rem 0.75rem;
+  background: #f8fafc;
+}
+
+.elite-list strong {
+  display: block;
+  color: var(--academy);
+  font-size: 1.15rem;
+  font-weight: 1000;
+}
+
+.elite-list span {
+  display: block;
+  margin-top: 0.2rem;
+  color: #475569;
+  font-weight: 850;
+}
+
+.science-table {
+  display: grid;
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
+
+.science-table div {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 0.6rem;
+  align-items: center;
+  border: 1px solid rgba(26, 43, 72, 0.12);
+  border-radius: 8px;
+  padding: 0.65rem 0.75rem;
+  background: #f8fafc;
+}
+
+.science-table span {
+  color: var(--academy);
+  font-weight: 1000;
+}
+
+.science-table strong {
+  color: #9a6b00;
+  font-weight: 1000;
+}
+
+.science-table em {
+  color: #475569;
+  font-style: normal;
+  font-weight: 850;
+}
+
+.teaching-icons-card {
+  grid-column: 1 / -1;
+}
+
+.teaching-icons {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.teaching-icons div {
+  border: 1px solid rgba(11, 31, 58, 0.12);
+  border-radius: 8px;
+  padding: 1rem;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(250, 204, 21, 0.22), transparent 6rem),
+    #1a2b48;
+}
+
+.teaching-icons span {
+  display: grid;
+  width: 2.8rem;
+  height: 2.8rem;
+  place-items: center;
+  border-radius: 50%;
+  color: var(--academy);
+  background: var(--gold);
+  font-size: 1.2rem;
+  font-weight: 1000;
+}
+
+.teaching-icons strong {
+  display: block;
+  margin-top: 0.75rem;
+  color: var(--gold);
+  font-size: 1.05rem;
+  font-weight: 1000;
+}
+
+.teaching-icons p {
+  color: #ffffff;
+  font-size: 0.95rem;
+}
+
 .senior-shine-card {
   position: relative;
   overflow: hidden;
@@ -1151,6 +1395,15 @@ img {
     grid-template-columns: 1fr;
   }
 
+  .achievement-grid,
+  .scholarship-card {
+    grid-template-columns: 1fr;
+  }
+
+  .teaching-icons {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .hero-horse {
     right: -11rem;
     bottom: -10rem;
@@ -1161,7 +1414,65 @@ img {
 
 @media (max-width: 640px) {
   html {
-    scroll-padding-top: 150px;
+    scroll-padding-top: 190px;
+  }
+
+  .top-banner > div {
+    display: grid;
+    gap: 0.45rem;
+    padding-block: 0.75rem;
+    text-align: center;
+    line-height: 1.35;
+  }
+
+  .top-banner a {
+    justify-self: center;
+  }
+
+  .site-nav {
+    top: 112px;
+    margin-top: 112px;
+  }
+
+  .site-nav-card {
+    gap: 0.75rem;
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+  .site-nav-card > a {
+    justify-content: center;
+  }
+
+  .site-nav-card > div {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.35rem;
+    overflow: visible;
+    width: 100%;
+  }
+
+  .nav-link {
+    display: grid;
+    min-height: 2.45rem;
+    place-items: center;
+    padding: 0.45rem 0.25rem;
+    text-align: center;
+    font-size: 0.86rem;
+  }
+
+  .hero-section h1 {
+    width: min(100%, calc(100vw - 2rem));
+    max-width: calc(100vw - 2rem);
+    font-size: 1.7rem;
+    line-height: 1.12;
+    white-space: normal;
+    word-break: break-all;
+    overflow-wrap: anywhere;
+  }
+
+  .hero-section p {
+    max-width: 100%;
   }
 
   .section-shell {
@@ -1189,9 +1500,66 @@ img {
     grid-template-columns: 1fr;
   }
 
+  .a-plus-trend {
+    padding: 0.85rem;
+  }
+
+  .trend-head {
+    display: grid;
+  }
+
+  .trend-growth-track {
+    gap: 0.45rem;
+    margin-top: 0.75rem;
+    padding-top: 0.75rem;
+  }
+
+  .trend-growth-track span {
+    justify-self: stretch;
+    text-align: center;
+    font-size: 0.82rem;
+  }
+
   .trend-growth-track::before,
   .trend-growth-track::after {
     display: none;
+  }
+
+  .trend-bars {
+    gap: 0.65rem;
+    min-height: auto;
+    margin-top: 0.8rem;
+  }
+
+  .trend-item {
+    grid-template-columns: 4.5rem 1fr;
+    min-height: auto;
+    gap: 0.65rem;
+    align-items: center;
+    text-align: left;
+  }
+
+  .trend-item small {
+    grid-column: 1;
+    grid-row: 1;
+    font-size: 0.9rem;
+  }
+
+  .trend-bar {
+    grid-column: 2;
+    grid-row: 1;
+    width: var(--bar-current);
+    height: 3.15rem;
+    min-width: 46%;
+    min-height: 0;
+    justify-self: start;
+    place-items: center;
+    border-radius: 999px;
+    padding-top: 0;
+  }
+
+  .trend-bar b {
+    font-size: 1rem;
   }
 
   .progress-ring {
@@ -1200,10 +1568,60 @@ img {
 
   .power-map-grid {
     grid-template-columns: 1fr;
+    gap: 1rem;
   }
 
   .map-lines {
-    min-height: 120px;
-    transform: rotate(90deg);
+    display: none;
+  }
+
+  .school-column {
+    gap: 0.45rem;
+  }
+
+  .school-column strong {
+    font-size: 0.95rem;
+  }
+
+  .source-schools,
+  .target-schools {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .source-schools strong,
+  .target-schools strong {
+    grid-column: 1 / -1;
+  }
+
+  .school-column span {
+    padding: 0.55rem 0.65rem;
+    text-align: center;
+  }
+
+  .target-schools::before {
+    content: "錄取流向";
+    grid-column: 1 / -1;
+    justify-self: center;
+    border-radius: 999px;
+    padding: 0.35rem 0.75rem;
+    color: var(--academy);
+    background: var(--gold);
+    font-size: 0.82rem;
+    font-weight: 1000;
+  }
+
+  .multi-school-cards span {
+    display: flex;
+    width: fit-content;
+    margin: 0.45rem 0 0;
+  }
+
+  .teaching-icons {
+    grid-template-columns: 1fr;
+  }
+
+  .science-table div,
+  .a-share-bar {
+    grid-template-columns: 1fr;
   }
 }
