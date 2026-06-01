@@ -5,8 +5,8 @@ window.tailwind.config = {
       colors: {
         academy: '#0B1F3A',
         academy2: '#123864',
-        gold: '#F6C445',
-        gold2: '#FFE9A8',
+        gold: '#FACC15',
+        gold2: '#FDE68A',
         ink: '#172033'
       },
       fontFamily: {
@@ -22,6 +22,107 @@ window.tailwind.config = {
 document.addEventListener('DOMContentLoaded', () => {
   const tabButtons = document.querySelectorAll('[data-tab]');
   const panels = document.querySelectorAll('[data-panel]');
+  const counters = document.querySelectorAll('.counter');
+  const progressRings = document.querySelectorAll('.progress-ring');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  const formatValue = (value, decimals) => {
+    if (decimals > 0) {
+      return value.toFixed(decimals);
+    }
+
+    return String(Math.round(value));
+  };
+
+  const runCounter = (counter) => {
+    if (counter.dataset.counted === 'true') {
+      return;
+    }
+
+    const target = Number(counter.dataset.target || 0);
+    const suffix = counter.dataset.suffix || '';
+    const decimals = Number(counter.dataset.decimals || 0);
+
+    if (reduceMotion) {
+      counter.textContent = `${formatValue(target, decimals)}${suffix}`;
+      counter.dataset.counted = 'true';
+      return;
+    }
+
+    const duration = 1100;
+    const startTime = performance.now();
+
+    const tick = (now) => {
+      const progress = Math.min((now - startTime) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      const current = target * eased;
+
+      counter.textContent = `${formatValue(current, decimals)}${suffix}`;
+
+      if (progress < 1) {
+        requestAnimationFrame(tick);
+      } else {
+        counter.textContent = `${formatValue(target, decimals)}${suffix}`;
+        counter.dataset.counted = 'true';
+      }
+    };
+
+    requestAnimationFrame(tick);
+  };
+
+  const counterObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        runCounter(entry.target);
+        counterObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.35 });
+
+  counters.forEach((counter) => counterObserver.observe(counter));
+
+  const runProgressRing = (ring) => {
+    if (ring.dataset.progressed === 'true') {
+      return;
+    }
+
+    const progress = Number(ring.dataset.progress || 0);
+
+    if (reduceMotion) {
+      ring.style.setProperty('--progress', progress);
+      ring.dataset.progressed = 'true';
+      return;
+    }
+
+    const duration = 1000;
+    const startTime = performance.now();
+
+    const tick = (now) => {
+      const elapsed = Math.min((now - startTime) / duration, 1);
+      const eased = 1 - Math.pow(1 - elapsed, 3);
+      ring.style.setProperty('--progress', progress * eased);
+
+      if (elapsed < 1) {
+        requestAnimationFrame(tick);
+      } else {
+        ring.style.setProperty('--progress', progress);
+        ring.dataset.progressed = 'true';
+      }
+    };
+
+    requestAnimationFrame(tick);
+  };
+
+  const progressObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        runProgressRing(entry.target);
+        progressObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.35 });
+
+  progressRings.forEach((ring) => progressObserver.observe(ring));
 
   tabButtons.forEach((button) => {
     button.addEventListener('click', () => {
@@ -37,6 +138,15 @@ document.addEventListener('DOMContentLoaded', () => {
         const isActive = panel.dataset.panel === target;
         panel.hidden = !isActive;
         panel.classList.toggle('is-active', isActive);
+
+        if (isActive) {
+          panel.querySelectorAll('.counter').forEach((counter) => {
+            counterObserver.observe(counter);
+          });
+          panel.querySelectorAll('.progress-ring').forEach((ring) => {
+            progressObserver.observe(ring);
+          });
+        }
       });
     });
   });

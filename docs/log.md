@@ -4,137 +4,63 @@ Date: 2026-06-01
 
 ## Summary
 
-The site was rebuilt into a professional one-page brand and recruitment website for 楊宜修國文文理補習班, focused on 115 全學段招生, the 三好特色, division-based program entry points, teacher cards, results, classroom environment, and contact conversion.
+本次將「楊宜修國文文理補習班」一頁式形象網站持續優化為 115 全學段招生頁，重點處理品牌素材、三學段內容、互動數據、師資圖卡、環境照片與聯絡轉換區塊。
 
 ## Requests And Changes
 
-1. Rebuilt the homepage into a high-conversion one-page layout.
-   - Added Hero section with 115 全學段招生 messaging.
-   - Added CTA buttons for 預約諮詢 and 三大分部入口.
-   - Applied an academic deep blue and gold visual system.
+1. 同步 GitHub 最新版本。
+   - 在 `main` 分支執行 `git pull`。
+   - 更新至遠端最新 commit。
 
-2. Added dynamic division content.
-   - Added tabs for 國小部、國中部、高中部.
-   - Used green, blue, and purple-gold color themes per division.
-   - Included private-school admission results, 115 國三會考全科班 rhythm, and high-school exam positioning.
+2. 重建招生形象頁內容。
+   - 修正原頁面亂碼，重寫繁中招生文案。
+   - 建立 Hero、三大分部、五科名師、好環境、聯絡資訊等一頁式區塊。
+   - 使用學術深藍與金榜黃作為主要品牌色。
 
-3. Added teacher and results sections.
-   - Added teacher cards for 楊宜修、章子瑜、Victor、林詠鈞 / 許煬、大雄.
-   - Added results and environment metrics for 115 多元入學、114 會考名人榜、94.44% 數學菁英班成果.
-   - Added detailed placeholder image alt text for accessibility and future asset replacement.
+3. 加入品牌素材。
+   - 導覽列使用 `sources/yyx.jpg` 作為圓形 Logo。
+   - Hero 主視覺改用 `sources/pdf-extracted/hero-horse.png`。
+   - Hero 馬圖卡片改為白底，並移除下方金色資訊條。
 
-4. Separated JavaScript from `index.html`.
-   - Moved Tailwind configuration and interactive behavior into `script.js`.
-   - Kept `index.html` responsible for page structure only.
-   - Corrected the filename from `scrpit.js` to `script.js`.
+4. 建立三大分部切換。
+   - 國小部：保留閱讀素養扎根、私中錄取 11 人次、衛道 6 人次、明道 2 人次等資訊。
+   - 國中部：加入 94.44%、84.21% 數據與「會考 A 計畫」進度軸。
+   - 高中部：保留台大級師資與學測英文成果文案，圖片區先留空。
+   - 後續依需求撤回國小部名校標誌牆，恢復簡潔榜單標籤。
+   - 後續依需求將國中部排版還原為原本分部卡片比例。
 
-5. Organized documentation.
-   - Created `docs/`.
-   - Moved `log.md` and `工作報告.md` into `docs/`.
+5. 加入互動效果。
+   - 使用 JavaScript 製作滾動觸發的數字跳動計數器。
+   - 為國中部 94.44% 製作三個圓形進度圖表，代表連續三次模考 A 以上比例。
+   - 為高中部按鈕加入金色流光 hover 動畫。
 
-6. Fixed brand and hero contrast.
-   - Replaced visible `YYX` branding with `楊宜修`.
-   - Adjusted the Hero visual background, image card, and badge styling so text remains readable.
+6. 調整師資圖卡。
+   - 先以 `sources/char.png` 作為五位教師的簡易人像代表。
+   - 保留教師姓名、科目與學術標籤。
+
+7. 加入環境與成果照片。
+   - 好環境區塊使用 `S__5964025_0.jpg` 與 `S__5964030.jpg`。
+   - 保留數學成果圖與可追蹤成果數據。
+
+8. 修正頂部導覽與聯絡資訊。
+   - 將頂部通知列與導覽列改為不透明實底，避免背景文字穿透造成不可讀。
+   - 聯絡區改為穩定深藍底。
+   - LINE 按鈕改為綠底白字。
+   - 新增 Facebook 藍底白字按鈕。
+   - 修正 Google Maps 查詢連結，移除「2 樓」避免導航落到樓層文字。
+
+## Verification
+
+- `node --check script.js` 通過。
+- 使用 Node 靜態伺服器 smoke test，`index.html` 回應 `HTTP 200`。
+- 確認 `sources/char.png` 存在。
 
 ## Files Created Or Updated
 
 - `index.html`
 - `styles.css`
 - `script.js`
-- `README.md`
+- `sources/char.png`
 - `docs/log.md`
 - `docs/工作報告.md`
-
-Date: 2026-05-30
-
-## Summary
-
-Today this project was initialized, published to GitHub Pages, and iteratively updated into a responsive static website for 楊宜修國文文理補習班.
-
-Demo: https://chenyuhsu413.github.io/YYXTest/
-
-## Requests And Changes
-
-1. Initialized the local Git repository and pushed the first version to GitHub.
-   - Commit: `688502c Initial commit`
-
-2. Added image assets to the repository.
-   - Commit: `a8458a6 Add image assets`
-
-3. Fixed image paths for GitHub Pages.
-   - Changed local `Downloads` image paths to repository-relative paths.
-   - Commit: `56b8c67 Fix image paths for GitHub Pages`
-   - Commit: `1ecd1e4 Use explicit relative image paths`
-
-4. Moved image files into the `sources/` folder.
-   - Updated image references in `index.html`.
-   - Commit: `4cd298d Move images into sources folder`
-
-5. Extracted inline CSS into a separate stylesheet.
-   - Added `styles.css`.
-   - Updated `index.html` to load `./styles.css`.
-   - Commit: `087cec2 Extract CSS into stylesheet`
-
-6. Added contact links and icons.
-   - Added Facebook link.
-   - Added Google Maps address link.
-   - Updated Google Maps query to avoid searching only for `2樓`.
-   - Replaced the map symbol with a Google Material map icon.
-   - Commit: `6365b1b Add social and map links`
-   - Commit: `09e8ac2 Improve Google Maps search link`
-   - Commit: `3fce96b Use Google Material map icon`
-
-7. Adjusted hero highlight cards.
-   - Replaced unclear `3-6 / 5+ / 1:1` stats with clearer course highlights.
-   - Commit: `e4ac8a0 Clarify hero course highlights`
-
-8. Improved navigation and page controls.
-   - Made the navigation bar sticky.
-   - Added a back-to-top button.
-   - Updated navbar labels and removed the contact nav item.
-   - Commit: `2717e58 Make navigation sticky and add back to top`
-   - Commit: `14b3094 Update navigation labels`
-
-9. Restyled the site using a warm school-template-inspired visual direction.
-   - Kept the top marquee.
-   - Updated colors, cards, typography, buttons, and layout.
-   - Commit: `b734440 Restyle site with warm school template look`
-
-10. Adjusted contact card layout.
-    - Added a phone icon.
-    - Equalized contact card heights.
-    - Fixed contact card row alignment.
-    - Added hover states to phone, Line, and Facebook links.
-    - Commit: `a4ccc49 Align contact card heights`
-    - Commit: `ec7dfd0 Equalize contact card heights`
-    - Commit: `ea1a9d5 Align contact cards on same row`
-    - Commit: `a29a6de Add hover states to contact links`
-
-11. Added and expanded project documentation.
-    - Added `README.md` with demo link.
-    - Expanded README with overview, features, structure, and deployment notes.
-    - Commit: `c6cc508 Add README with demo link`
-    - Commit: `ffa298b Expand README documentation`
-
-12. Reordered page sections.
-    - Moved 課堂側拍 below 國小安親課輔班.
-    - Commit: `dba709f Move classroom photos below after-school section`
-
-13. Added interactive contact links.
-    - Added Line official account link.
-    - Updated Line URL.
-    - Added clickable phone link for mobile dialing.
-    - Highlighted the Line official account CTA.
-    - Commit: `6546169 Link Line contact`
-    - Commit: `37f52ac Update Line contact URL`
-    - Commit: `6b08f9c Add clickable phone link`
-    - Commit: `ab1b890 Highlight Line official account link`
-
-## Files Created Or Updated
-
-- `index.html`
-- `styles.css`
-- `README.md`
-- `sources/`
-- `log.md`
 
