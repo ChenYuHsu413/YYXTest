@@ -14,7 +14,7 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 112px;
+  scroll-padding-top: 96px;
 }
 
 body {
@@ -28,8 +28,50 @@ img {
 
 .top-banner {
   z-index: 70;
-  background: var(--academy) !important;
-  border-bottom: 1px solid rgba(250, 204, 21, 0.22);
+  height: 44px;
+  overflow: hidden;
+  background: #b91c1c !important;
+  border-bottom: 1px solid rgba(250, 204, 21, 0.36);
+}
+
+.ticker-viewport {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.ticker-track {
+  display: flex;
+  width: max-content;
+  min-width: 200%;
+  height: 100%;
+  align-items: center;
+  gap: clamp(2rem, 6vw, 4rem);
+  padding-inline: 100%;
+  color: #ffffff;
+  font-size: clamp(0.86rem, 2.8vw, 1rem);
+  font-weight: 1000;
+  white-space: nowrap;
+  animation: ticker-scroll 34s linear infinite;
+}
+
+.ticker-track span:nth-child(4n + 1),
+.ticker-track span:nth-child(4n + 3) {
+  color: var(--gold);
+}
+
+.ticker-banner:hover .ticker-track {
+  animation-play-state: paused;
+}
+
+@keyframes ticker-scroll {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
 }
 
 .site-nav {
@@ -63,7 +105,8 @@ img {
 .hero-section {
   color: #ffffff;
   background:
-    radial-gradient(circle at 78% 22%, rgba(250, 204, 21, 0.22), transparent 34rem),
+    linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url("./sources/pdf-extracted/hero-horse.png") center 34% / cover no-repeat,
     linear-gradient(135deg, #061529 0%, var(--academy) 48%, #123864 100%);
 }
 
@@ -73,7 +116,7 @@ img {
   bottom: -14rem;
   width: min(58vw, 42rem);
   max-width: none;
-  opacity: 0.24;
+  opacity: 0.08;
   filter: drop-shadow(0 26px 50px rgba(0, 0, 0, 0.34));
   pointer-events: none;
 }
@@ -176,6 +219,15 @@ img {
 .btn-facebook:hover {
   transform: translateY(-2px);
   box-shadow: 0 18px 38px rgba(11, 31, 58, 0.22);
+}
+
+.btn-primary:active,
+.btn-secondary:active,
+.btn-map:active,
+.btn-line:active,
+.btn-facebook:active,
+.tab-btn:active {
+  transform: translateY(0) scale(0.98);
 }
 
 .btn-shine {
@@ -297,6 +349,27 @@ img {
 .tab-senior.is-active {
   color: var(--gold);
   background: #2e214f;
+}
+
+.tab-senior {
+  position: relative;
+  overflow: hidden;
+}
+
+.tab-senior::after {
+  content: "";
+  position: absolute;
+  inset: -80% auto -80% -50%;
+  width: 38%;
+  transform: skewX(-22deg);
+  background: linear-gradient(90deg, transparent, rgba(250, 204, 21, 0.78), transparent);
+  opacity: 0;
+}
+
+.tab-senior:hover::after,
+.tab-senior.is-active::after {
+  animation: gold-shine 900ms ease;
+  opacity: 1;
 }
 
 .department-panel {
@@ -1179,6 +1252,22 @@ img {
   padding: 0.85rem;
 }
 
+.academic-teacher {
+  position: relative;
+}
+
+.academic-label {
+  display: inline-flex;
+  margin-top: 0.85rem;
+  border-radius: 999px;
+  padding: 0.42rem 0.7rem;
+  color: #ffffff;
+  background: var(--academy);
+  font-size: 0.82rem;
+  font-weight: 1000;
+  letter-spacing: 0.08em;
+}
+
 .teacher-card img {
   aspect-ratio: 4 / 3;
   width: 100%;
@@ -1414,24 +1503,22 @@ img {
 
 @media (max-width: 640px) {
   html {
-    scroll-padding-top: 190px;
+    scroll-padding-top: 142px;
   }
 
-  .top-banner > div {
-    display: grid;
-    gap: 0.45rem;
-    padding-block: 0.75rem;
-    text-align: center;
-    line-height: 1.35;
+  .top-banner {
+    height: 42px;
   }
 
-  .top-banner a {
-    justify-self: center;
+  .ticker-track {
+    gap: 2rem;
+    padding-inline: 100%;
+    animation-duration: 26s;
   }
 
   .site-nav {
-    top: 112px;
-    margin-top: 112px;
+    top: 42px;
+    margin-top: 42px;
   }
 
   .site-nav-card {
@@ -1464,8 +1551,8 @@ img {
   .hero-section h1 {
     width: min(100%, calc(100vw - 2rem));
     max-width: calc(100vw - 2rem);
-    font-size: 1.7rem;
-    line-height: 1.12;
+    font-size: 2.1rem;
+    line-height: 1.18;
     white-space: normal;
     word-break: break-all;
     overflow-wrap: anywhere;
@@ -1473,6 +1560,10 @@ img {
 
   .hero-section p {
     max-width: 100%;
+  }
+
+  .hero-section {
+    background-position: center top;
   }
 
   .section-shell {
