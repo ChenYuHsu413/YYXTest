@@ -2,6 +2,8 @@
 
 Demo link: <https://chenyuhsu413.github.io/YYXTest/>
 
+![Demo screenshot](sources/demo-screenshot.png)
+
 ## Project Overview
 
 This is a responsive one-page brand and recruitment website for 楊宜修國文文理補習班. The site focuses on 115 全學段招生, highlighting the brand's 三好特色：好師資、好規劃、好環境.
